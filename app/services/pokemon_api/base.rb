@@ -20,7 +20,7 @@ module PokemonApi
     # we want to avoid overloading the Pokemon API as requested in the documentation so we update
     # the data every week only
     def cache_result(&block)
-      Rails.cache.fetch(cache_key, expires_in: 10.week) { format_response(block.call) }
+      Rails.cache.fetch(cache_key, expires_in: 10.weeks) { format_response(block.call) }
     end
 
     private
